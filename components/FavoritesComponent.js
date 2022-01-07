@@ -32,14 +32,14 @@ class Favorites extends Component {
             return (
                 <SwipeRow rightOpenValue={-100} style={styles.swipeRow}>
                     <View style={styles.deleteView}>
-                    <TouchableOpacity
+                        <TouchableOpacity
                             style={styles.deleteTouchable}
-                            onPress={() =>
+                            onPress={() => 
                                 Alert.alert(
                                     'Delete Favorite?',
-                                    'Are you sure you wish to delete the favorite campsite ' +
-                                        item.name +
-                                        '?',
+                                    'Are you sure you wish to delete the favorite campsite ' + 
+                                    item.name +
+                                    '?',
                                     [
                                         {
                                             text: 'Cancel',
@@ -58,7 +58,6 @@ class Favorites extends Component {
                             <Text style={styles.deleteText}>Delete</Text>
                         </TouchableOpacity>
                     </View>
-
                     <View>
                         <ListItem
                             title={item.name}
@@ -82,14 +81,14 @@ class Favorites extends Component {
             );
         }
         return (
-            <Animatable.View animation='fadeInRightBig' duration={2000}>
-            <FlatList
-                data={this.props.campsites.campsites.filter(
-                    campsite => this.props.favorites.includes(campsite.id)
-                )}
-                renderItem={renderFavoriteItem}
-                keyExtractor={item => item.id.toString()}
-            />
+            <Animatable.View animation="fadeInRightBig" duration={2000}>
+                <FlatList
+                    data={this.props.campsites.campsites.filter(
+                        campsite => this.props.favorites.includes(campsite.id)
+                    )}
+                    renderItem={renderFavoriteItem}
+                    keyExtractor={item => item.id.toString()}
+                />
             </Animatable.View>
         );
     }
